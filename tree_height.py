@@ -13,10 +13,10 @@ def compute_height(n, parents):
             root = i
         else:
             tree[parent].append(i)
-     def height(node):
+     def dfs(node):
          heights = [0]
          for child in tree[node]:
-             heights.append(height(child))
+             heights.append(dfs(child))
          return max(heights) + 1
          
      return height(root)
