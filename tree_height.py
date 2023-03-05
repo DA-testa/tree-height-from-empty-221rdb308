@@ -14,12 +14,13 @@ def compute_height(n, parents):
         else:
             tree[parent].append(i)
      def dfs(node):
-         heights = [0]
+         max_height = 0
          for child in tree[node]:
-             heights.append(dfs(child))
-         return max(heights) + 1
+             height = 1 + dfs(child)
+             max_height = max(max_height, height)
+         return max_height
          
-     return height(root)
+       return height(root)
 
 
 def main():
