@@ -4,34 +4,6 @@ import sys
 import threading
 
 
-def read_input():
-    while True:
-        inputtype = input("input I for keyboard and F for file:")
-        if inputtype.upper() == "I":
-            n = int(input())
-            parents = list(map(int, input().split()))
-            break  
-        elif inputtype.upper() == "F":
-            while True:
-                filename = input("input filename without the letter a:")
-                if 'a' in filename.lower():
-                    print("try again, filename contains the letter a:")
-                else:
-                    try:
-                        with open(f"inputs/{filename}") as f:
-                            n = int(f.readline().strip())
-                            parents = list(map(int, f.readline().strip().split()))
-                            break
-                    except FileNotFoundError:
-                        print("File not found")
-                        continue
-                    except:
-                        print("Invalid file format")
-                        continue
-                    break
-        else:
-            print("Invalid input type")
-    return n, parents
                             
 
 def compute_height(n, parents):
@@ -54,7 +26,8 @@ def compute_height(n, parents):
 
 
 def main():
-    n, parents = read_input()
+    n = int(input())
+    parents = list(map(int, input().split()))
     height = compute_height(n, parents)
     print(height)
 
