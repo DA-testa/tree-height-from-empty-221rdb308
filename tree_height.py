@@ -5,6 +5,23 @@ import threading
 import numpy
 
 
+def compute_height(n, parents):
+    tree = [[] for _ in range(n)]
+    for i in range(n):
+        parent = parents[i]
+        if parent == -1:
+            root = i
+        else:
+            tree[parent].append(i)
+    def dfs(node):
+        max_height = 0
+        for child in tree[node]:
+            height = 1 + dfs(child)
+            max_height = max(max_height, height)
+        return max_height
+         
+    return dfs(root)
+
 def read_input():
     inputtype = input()
     if inputtype.upper() == "I":
@@ -27,24 +44,6 @@ def read_input():
     else:
         print("Error:Nepareiza ievade")
         return read_input()
-
-def compute_height(n, parents):
-    tree = [[] for _ in range(n)]
-    for i in range(n):
-        parent = parents[i]
-        if parent == -1:
-            root = i
-        else:
-            tree[parent].append(i)
-    def dfs(node):
-        max_height = 0
-        for child in tree[node]:
-            height = 1 + dfs(child)
-            max_height = max(max_height, height)
-        return max_height
-         
-    return dfs(root)
-
 
 def main():
     n, parents = read_input()
