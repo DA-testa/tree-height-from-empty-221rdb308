@@ -2,7 +2,6 @@
 
 import sys
 import threading
-import numpy
 
 
 def read_input():
@@ -39,22 +38,21 @@ def read_input():
 
 def compute_height(n, parents):
     # Write this function
-    nodes = [[] for _ in range (n)]
-    max_height = None
-    for i, parent in enumerate(parents):
+    tree = [[] for i in range (n)]
+    for i in range(n):
+        parent=parents[i]
         if parent == -1:
-            max_height = i
+        c = i
         else:
-            nodes[parent].append(i)
-    return c(max_height, nodes)
+            tree[parent].append(i)
     # Your code here
     
-def c(node, nodes):
-    if not nodes[node]:
+def height(node):
+    if len(tree[node]) == 0:
         return 1
     else:
-        return 1 + max([c(child) for child in nodes[node]])
-    return c(max_height)
+        return 1 + max([height(child) for child in tree[node]])
+    return height(c)
 
 def main():
     # implement input form keyboard and from files
@@ -62,9 +60,8 @@ def main():
     # let user input file name to use, don't allow file names with letter a
     # account for github input inprecision
      n, parents = read_input()
-     nodes = [[] for _ in range(n)]
-        height = compute_height(n, parents)
-        print(height)
+     height = compute_height(n, parents)
+     print(height)
     
     # input number of elements
     # input values in one variable, separate with space, split these values in an array
