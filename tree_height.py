@@ -39,8 +39,9 @@ def read_input():
                     n = int(f.realine().strip())
                     parents = list(map(int, f.readline().strip().split()))
                     return n, parents
-            except FileNotFoundError:
-                print("Error:Fails neatrasts")
+            except EOFError:
+                print("Error:Input is missing")
+                sys.exit(1)
     else:
         print("Error:Nepareiza ievade")
         return read_input()
