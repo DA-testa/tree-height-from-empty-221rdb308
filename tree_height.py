@@ -17,22 +17,22 @@ def read_input():
                 filename = input("input filename without the letter a:")
                 if 'a' in filename.lower():
                     print("try again, filename contains the letter a:")
-                    else:
-                        try:
-                            with open(f"inputs/{filename}") as f:
-                                n = int(f.readline().strip())
-                                 parents = list(map(int, f.readline().strip().split()))
-                                   break
-                                except FileNotFoundError:
-                                    print("File not found")
-                                    continue:
-                                        except:
-                                            print("Invalid file format")
-                                            continue
-                                            break
-                 else:
-                    print("Invalid input type")
-                 return n, parents
+          else:
+             try:
+                with open(f"inputs/{filename}") as f:
+                   n = int(f.readline().strip())
+                   parents = list(map(int, f.readline().strip().split()))
+                   break
+             except FileNotFoundError:
+                 print("File not found")
+                 continue:
+             except:
+                 print("Invalid file format")
+                 continue
+                 break
+           else:
+             print("Invalid input type")
+             return n, parents
 
                                 
 
@@ -44,8 +44,8 @@ def compute_height(n, parents):
     for i, parent in enumerate(parents):
         if parent == -1:
             max_height = i
-            else:
-                nodes[parent].append(i)
+        else:
+            nodes[parent].append(i)
     return c(max_height, nodes)
     # Your code here
     
