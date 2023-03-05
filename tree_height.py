@@ -4,6 +4,30 @@ import sys
 import threading
 import numpy
 
+
+def read_input():
+    inputtype = input()
+    if inputtype.upper() == "I":
+        n = int(input())
+        parents = list(map(int, input().split()))
+        return n, parents
+        
+    elif inputtype.upper() == "F":
+        while True:
+            try:
+                filename = input()
+                if "a" in filename:
+                    raise ValueError("Filename nevar saturet 'a' burtu")    
+                with open(f"./{filename}", 'r') as f:
+                    n = int(f.realine().strip())
+                    parents = list(map(int, f.readline().strip().split()))
+                    return n, parents
+            except FileNotFoundError:
+                print("Error:Fails neatrasts")
+     else:
+         print("Error:Nepareiza ievade")
+         return read_input()
+
 def compute_height(n, parents):
     tree = [[] for _ in range(n)]
     for i in range(n):
@@ -23,8 +47,7 @@ def compute_height(n, parents):
 
 
 def main():
-    n = int(input())
-    parents = list(map(int, input().split()))
+    n, parents = read_input()
     
     height = compute_height(n, parents)
     
