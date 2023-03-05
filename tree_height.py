@@ -24,9 +24,9 @@ def read_input():
                     return n, parents
             except FileNotFoundError:
                 print("Error:Fails neatrasts")
-     else:
-         print("Error:Nepareiza ievade")
-         return read_input()
+    else:
+        print("Error:Nepareiza ievade")
+        return read_input()
 
 def compute_height(n, parents):
     tree = [[] for _ in range(n)]
