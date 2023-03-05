@@ -46,10 +46,10 @@ def compute_height(n, parents):
             max_height = i
             else:
                 nodes[parent].append(i)
-    
+    return c(max_height, nodes)
     # Your code here
     
-def c(node):
+def c(node, nodes):
     if not nodes[node]:
         return 1
     else:
@@ -62,6 +62,7 @@ def main():
     # let user input file name to use, don't allow file names with letter a
     # account for github input inprecision
      n, parents = read_input()
+     nodes = [[] for _ in range(n)]
         height = compute_height(n, parents)
         print(height)
     
