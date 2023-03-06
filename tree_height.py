@@ -36,7 +36,7 @@ def main():
             print("Filename must not contain a letter!")
             return
         folder = './test/'
-        test open(folder + filename, 'r') as f:
+        test = open(folder + filename, 'r')
              n = int(f.readline().strip())
              parents = list(map(int, f.readline().strip().split()))
         
