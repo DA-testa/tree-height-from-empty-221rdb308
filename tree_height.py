@@ -42,8 +42,12 @@ def main():
                 parents = list(map(int, test.readline().strip().split()))
         
 
-    height = compute_height(n, parents)
-    print(height)
+    try:
+        height = compute_height(n, parents)
+        print(height)
+    except ValueError as e:
+        print("Error:", str(e))
+        return
 
     print(height)
 
