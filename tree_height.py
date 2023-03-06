@@ -47,8 +47,7 @@ def read_input():
         return read_input()
 
 def main():
-    n = int(input())
-    parents = list(map(int, input().split()))
+    n, parents = read_input()
     
     height = compute_height(n, parents)
     
