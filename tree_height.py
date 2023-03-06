@@ -44,7 +44,7 @@ def read_input(path='tree-height-from-empty-221rdb308/test/'):
                 sys.exit(1)
     else:
         print("Error:Nepareiza ievade")
-        return read_input()
+        return read_input(path)
 
 def main():
     input_type = input().strip().upper()
