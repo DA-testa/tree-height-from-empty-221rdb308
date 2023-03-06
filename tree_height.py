@@ -24,7 +24,7 @@ def compute_height(n, parents):
 
 def read_input():
     inputtype = input()
-    if inputtype.upper() == "I":
+    if inputtype.upper() == "i":
         n = int(input())
         parents = list(map(int, input().split()))
         return n, parents
