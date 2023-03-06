@@ -45,8 +45,14 @@ def main():
             return
 
     
-    height = compute_height(n, parents)
-    print(height)
+    print("n:", n)
+    print("parents:", parents)
+    try:
+        height = compute_height(n, parents)
+        print("height:", height)
+    except ValueError as e:
+        print("Error:", str(e))
+        return
     
 
 
