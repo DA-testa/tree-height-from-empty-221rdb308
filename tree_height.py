@@ -36,9 +36,10 @@ def main():
             print("Filename must not contain a letter!")
             return
         folder = './test/'
-        test = open(folder + filename, 'r')
-             n = int(test.readline())
-             parents = list(map(int, test.readline().strip().split()))
+        try:
+            with open(folder + filename, 'r') as test
+                n = int(test.readline())
+                parents = list(map(int, test.readline().strip().split()))
         
 
     height = compute_height(n, parents)
