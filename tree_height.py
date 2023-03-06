@@ -12,14 +12,16 @@ def compute_height(n, parents):
             root = i
         else:
             tree[parent].append(i)
+
     def dfs(node):
         max_height = 0
         for child in tree[node]:
             height = 1 + dfs(child)
             max_height = max(max_height, height)
         return max_height
-         
+
     return dfs(root)
+
 
 def read_input():
     input_type = input()
@@ -27,36 +29,34 @@ def read_input():
         n = int(input())
         parents = list(map(int, input().split()))
         return n, parents
-        
+
     elif input_type.upper() == "F":
         while True:
             try:
                 filename = input()
                 if "a" in filename:
-                    raise ValueError("Filename nevar saturet 'a' burtu") 
-                    return
+                    raise ValueError("Filename should not contain the letter 'a'")
                 folder = './test/'
                 with open(folder + filename, 'r') as f:
                     n = int(f.readline().strip())
                     parents = list(map(int, f.readline().strip().split()))
                     return n, parents
             except EOFError:
-                print("Error:Input is missing")
+                print("Error: Input is missing")
                 sys.exit(1)
+            except ValueError as e:
+                print(e)
     else:
-        print("Error:Nepareiza ievade")
+        print("Error: Invalid input")
         return read_input()
 
+
 def main():
-    
     n, parents = read_input()
-    
-    
     height = compute_height(n, parents)
-    
     print(height)
 
 
-sys.setrecursionlimit(10**7)  
-threading.stack_size(2**27)   
+sys.setrecursionlimit(10 ** 7)
+threading.stack_size(2 ** 27)
 threading.Thread(target=main).start()
