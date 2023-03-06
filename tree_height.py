@@ -47,7 +47,15 @@ def read_input():
         return read_input()
 
 def main():
-    n, parents = read_input()
+    input_type = input().strip().upper()
+    if input_type == 'I':
+        n, parents = read_input()
+    elif inputtype == 'F':
+        filename = input().strip()
+        n, parents = read_input(filename)
+    else:
+        print("Error: Invalid input type")
+        sys.exit(1)
     
     height = compute_height(n, parents)
     
