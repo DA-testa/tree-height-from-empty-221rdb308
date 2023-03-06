@@ -22,13 +22,13 @@ def compute_height(n, parents):
     return dfs(root)
 
 def read_input():
-    inputtype = input()
-    if inputtype.upper() == "i":
+    input_type = input()
+    if input_type.upper() == "I":
         n = int(input())
         parents = list(map(int, input().split()))
         return n, parents
         
-    elif inputtype.upper() == "F":
+    elif input_type.upper() == "F":
         while True:
             try:
                 filename = input()
