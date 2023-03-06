@@ -23,40 +23,30 @@ def compute_height(n, parents):
     return dfs(root)
 
 
-def read_input():
-    input_type = input()
-    if input_type.upper() == "I":
-        n = int(input())
-        parents = list(map(int, input().split()))
-        return n, parents
-
-    elif input_type.upper() == "F":
-        while True:
-            try:
-                filename = input()
-                if "a" in filename:
-                    raise ValueError("Filename should not contain the letter 'a'")
-                folder = './test/'
-                with open(folder + filename, 'r') as f:
-                    lines = f.readlines()
-                    n = int(lines[0].strip())
-                    parents = list(map(int, lines[1].strip().split()))
-                    return n, parents
-            except EOFError:
-                print("Error: Input is missing")
-                sys.exit(1)
-            except ValueError as e:
-                print(e)
-    else:
-        print("Error: Invalid input")
-        return read_input()
-
 
 
 def main():
-    print("Enter input type (I for keyboard, F for file):")
-    n, parents = read_input()
+    input_type = input("Enter input type (I for keyboard, F for file): ")
+    if input_type.upper() == "I":
+        n = int(input("Enter the number of nodes: "))
+        parents = list(map(int, input("Enter the parent nodes: ").split()))
+    elif input_type.upper() == "F":
+        try:
+            filename = input("Enter the filename: ")
+            folder = './test/'
+            with open(folder + filename, 'r') as f:
+                n = int(f.readline().strip())
+                parents = list(map(int, f.readline().strip().split()))
+        except FileNotFoundError:
+            print("File not found!")
+            return
+    else:
+        print("Invalid input_type!")
+        return
+
     height = compute_height(n, parents)
+    print(height)
+
     print(height)
 
 
