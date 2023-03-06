@@ -38,8 +38,9 @@ def read_input():
                     raise ValueError("Filename should not contain the letter 'a'")
                 folder = './test/'
                 with open(folder + filename, 'r') as f:
-                    n = int(f.readline().strip())
-                    parents = list(map(int, f.readline().strip().split()))
+                    lines = f.readlines()
+                    n = int(lines[0].strip())
+                    parents = list(map(int, lines[1].strip().split()))
                     return n, parents
             except EOFError:
                 print("Error: Input is missing")
@@ -49,6 +50,7 @@ def read_input():
     else:
         print("Error: Invalid input")
         return read_input()
+
 
 
 def main():
