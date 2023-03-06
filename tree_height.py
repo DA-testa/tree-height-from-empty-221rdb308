@@ -36,7 +36,7 @@ def read_input():
                 if "a" in filename:
                     raise ValueError("Filename nevar saturet 'a' burtu")    
                 with open(f"test/{filename}", 'r') as f:
-                    n = int(f.realine().strip())
+                    n = int(f.readline().strip())
                     parents = list(map(int, f.readline().strip().split()))
                     return n, parents
             except EOFError:
