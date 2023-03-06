@@ -38,8 +38,8 @@ def main():
             print("Filename must not contain a letter!")
             return
         folder = './test/'
-        filepath = os.path.join(folder, filename)
-            with open(filepath, 'r') as test:
+        try:
+            with open(folder + filename, 'r') as test:
                 n = int(test.readline())
                 parents = list(map(int, test.readline().strip().split()))
         except FileNotFoundError:
