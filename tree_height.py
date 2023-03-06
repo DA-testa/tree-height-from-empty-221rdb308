@@ -33,6 +33,9 @@ def main():
     elif input_type.upper() == "F":
         try:
             filename = input("Enter the filename: ")
+            if 'a' in filename or 'A' in filename:
+                print("Filename must not contain a letter!")
+                return
             folder = './test/'
             with open(folder + filename, 'r') as f:
                 n = int(f.readline().strip())
