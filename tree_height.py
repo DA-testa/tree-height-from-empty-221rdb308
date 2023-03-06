@@ -54,6 +54,7 @@ def read_input():
 
 
 def main():
+    print("Enter input type (I for keyboard, F for file):")
     n, parents = read_input()
     height = compute_height(n, parents)
     print(height)
