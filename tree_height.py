@@ -34,7 +34,7 @@ def read_input():
                 filename = input()
                 if "a" in filename:
                     raise ValueError("Filename nevar saturet 'a' burtu")    
-                with open(f"test/{filename}", 'r') as f:
+                with open(f"tree-height-from-empty-221rdb308/test/{filename}", 'r') as f:
                     n = int(f.readline().strip())
                     parents = list(map(int, f.readline().strip().split()))
                     return n, parents
