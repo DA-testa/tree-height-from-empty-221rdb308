@@ -33,8 +33,10 @@ def read_input():
             try:
                 filename = input()
                 if "a" in filename:
-                    raise ValueError("Filename nevar saturet 'a' burtu")    
-                with open(f"./test/{filename}", 'r') as f:
+                    raise ValueError("Filename nevar saturet 'a' burtu") 
+                    return
+                folder = './test/'
+                with open(folder + filename, 'r') as f:
                     n = int(f.readline().strip())
                     parents = list(map(int, f.readline().strip().split()))
                     return n, parents
