@@ -37,8 +37,8 @@ def main():
             return
         folder = './test/'
         test = open(folder + filename, 'r')
-             n = int(f.readline().strip())
-             parents = list(map(int, f.readline().strip().split()))
+             n = int(test.readline().strip())
+             parents = list(map(int, test.readline().strip().split()))
         
 
     height = compute_height(n, parents)
