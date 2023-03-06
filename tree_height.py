@@ -47,7 +47,7 @@ def main():
     
     try:
         height = compute_height(n, parents)
-        print("height:", height)
+        print(height)
     except ValueError as e:
         print("Error:", str(e))
         return
