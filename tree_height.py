@@ -40,16 +40,16 @@ def main():
             with open(folder + filename, 'r') as test:
                 n = int(test.readline())
                 parents = list(map(int, test.readline().strip().split()))
-        
+        except FileNotFoundError:
+            print("File not found!")
+            return
 
-    try:
-        height = compute_height(n, parents)
-        print(height)
-    except ValueError as e:
-        print("Error:", str(e))
-        return
-
+    
+    height = compute_height(n, parents)
     print(height)
+    
+
+
 
 
 sys.setrecursionlimit(10 ** 7)
