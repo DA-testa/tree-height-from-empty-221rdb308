@@ -16,11 +16,12 @@ def compute_height(n, parents):
     def dfs(node):
         max_height = 0
         for child in tree[node]:
-            height = 1 + dfs(child)
+            depth = 1 + dfs(child)
             max_height = max(max_height, height)
-        return max_height
+        return max_depth
 
-    return dfs(root)
+    height = dfs(root)
+    return height + 1
 
 
 
