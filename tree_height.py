@@ -22,7 +22,7 @@ def compute_height(n, parents):
          
     return dfs(root)
 
-def read_input():
+def read_input(path='tree-height-from-empty-221rdb308/test/'):
     inputtype = input()
     if inputtype.upper() == "I":
         n = int(input())
@@ -35,7 +35,7 @@ def read_input():
                 filename = input()
                 if "a" in filename:
                     raise ValueError("Filename nevar saturet 'a' burtu")    
-                with open(f"./{filename}", 'r') as f:
+                with open(f"{path}/{filename}", 'r') as f:
                     n = int(f.realine().strip())
                     parents = list(map(int, f.readline().strip().split()))
                     return n, parents
