@@ -37,7 +37,7 @@ def main():
             return
         folder = './test/'
         try:
-            with open(folder + filename, 'r') as test
+            with open(folder + filename, 'r') as test:
                 n = int(test.readline())
                 parents = list(map(int, test.readline().strip().split()))
         
