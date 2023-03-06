@@ -45,8 +45,6 @@ def main():
             return
 
     
-    print("n:", n)
-    print("parents:", parents)
     try:
         height = compute_height(n, parents)
         print("height:", height)
