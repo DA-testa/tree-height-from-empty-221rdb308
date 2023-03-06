@@ -30,22 +30,16 @@ def main():
     if input_type.upper() == "I":
         n = int(input("Enter the number of nodes: "))
         parents = list(map(int, input("Enter the parent nodes: ").split()))
-    elif input_type.upper() == "F":
-        try:
-            filename = input("Enter the filename: ")
-            if 'a' in filename or 'A' in filename:
-                print("Filename must not contain a letter!")
-                return
-            folder = './test/'
-            with open(folder + filename, 'r') as f:
-                n = int(f.readline().strip())
-                parents = list(map(int, f.readline().strip().split()))
-        except FileNotFoundError:
-            print("File not found!")
-            return
     else:
-        print("Invalid input_type!")
-        return
+        filename = input("Enter the filename: ")
+        if 'a' in filename or 'A' in filename:
+            print("Filename must not contain a letter!")
+            return
+        folder = './test/'
+        test open(folder + filename, 'r') as f:
+             n = int(f.readline().strip())
+             parents = list(map(int, f.readline().strip().split()))
+        
 
     height = compute_height(n, parents)
     print(height)
