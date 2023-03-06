@@ -47,15 +47,9 @@ def read_input(path='tree-height-from-empty-221rdb308/test/'):
         return read_input(path)
 
 def main():
-    input_type = input().strip().upper()
-    if input_type == 'I':
-        n, parents = read_input()
-    elif inputtype == 'F':
-        filename = input().strip()
-        n, parents = read_input(filename)
-    else:
-        print("Error: Invalid input type")
-        sys.exit(1)
+    
+    n, parents = read_input()
+    
     
     height = compute_height(n, parents)
     
